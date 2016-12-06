@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>processing</title>
+<script type="text/javascript" src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./js/processing.min.js"></script>
+</head>
+
+<script type="text/processing"  data-processing-target="mycanvas">
+
+/*********************************************
+STEP_05 : 障害物を作ろう_1
+**********************************************/
+
+/*********************************************
+- これまでの練習を基に「右から左」に動く障害物を上下それぞれ作みよう
+
+[Point]
+- 壁を横（右端から左端）に動かす
+- fill(102, 51, 0);
+  ->壁の色を茶色指定するための命令
+  ->中の数字を変えると色が変わります
+*********************************************/
+
+//画像 読み込み用
+PImage sea;
+
+//壁（上）の位置（横）
+int kabe_ue_x;
+
+//壁（下）の位置（横）
+int kabe_sita_x;
+
+//画面の初期設定
+void setup() {
+   //画面サイズ設定
+   size(1065, 612);
+
+   //背景画像を読み込み
+   sea = loadImage("./image/sea.png");
+
+   //壁（上・下）の初期値
+   //画面の右端を設定
+   kabe_ue_x = 1065;
+   kabe_sita_x = 1065;
+}
+
+//描画処理
+void draw() {
+  //背景を設定
+  background(sea);
+
+  //---壁（上）の動き-----------//
+  //茶色を設定
+  fill(102, 51, 0);
+  //壁を画面に描画 rect(横位置, 縦位置, 横大きさ, 縦大きさ)
+  rect(kabe_ue_x, 0, 50, 200);
+  //壁（上）の横の位置を-3
+  kabe_ue_x = kabe_ue_x - ???;
+  //--------------------//
+
+  //---壁（下）の動き-----------//
+  //茶色を設定
+  fill(102, 51, 0);
+  //壁を画面に描画 rect(横位置, 縦位置, 横大きさ, 縦大きさ)
+  rect(kabe_sita_x, 612, 50, -200);
+  //壁（下）の横の位置を-3
+  kabe_sita_x = kabe_sita_x - 3;
+  //--------------------//
+}
+
+</script>
+
+<body>
+    <canvas id="mycanvas"></canvas>
+</body>
+</html>

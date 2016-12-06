@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>processing</title>
+<script type="text/javascript" src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./js/processing.min.js"></script>
+</head>
+
+<script type="text/processing"  data-processing-target="mycanvas">
+
+/*********************************************
+STEP_04 : 四角を動かしてみましょうー答え
+**********************************************/
+
+/*********************************************
+- Processing は
+  setup(){} を一回だけ通った後は
+  draw(){} を何回も繰り返して通ります
+- rect()の位置が毎回変わるようにすると、動いているように見えます
+
+[Point]
+- 変数 : データや値をいれるための箱
+- 四角の位置や大きさに変数を入れることができます
+  (例) rect(x, y, 100, 100)
+- 「x = x + 3;」 xの値に3を加える
+
+*********************************************/
+
+//画像 読み込み用
+PImage sea;
+
+int x;
+int y;
+
+//画面の初期設定
+void setup() {
+   //画面サイズ設定
+   size(1065, 612);
+
+   //背景画像を読み込み
+   sea = loadImage("./image/sea.png");
+
+   //初期値を設定
+   x = 100;
+   y = 100;
+}
+
+//描画処理
+void draw() {
+  //背景を設定
+  background(sea);
+
+  //四角を描画
+  rect(x,y,100,100);
+
+  x = x + 2;
+  y = y + 2;
+}
+
+</script>
+
+<body>
+    <canvas id="mycanvas"></canvas>
+</body>
+</html>

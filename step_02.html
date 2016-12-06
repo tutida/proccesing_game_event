@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>processing</title>
+<script type="text/javascript" src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./js/processing.min.js"></script>
+</head>
+
+<script type="text/processing"  data-processing-target="mycanvas">
+
+/*********************************************
+STEP_02 : 画像を背景に設定してみよう
+**********************************************/
+
+/*********************************************
+- 背景用画像が 「./image/sea.png」にあります
+- この背景用画像を画面に貼ってみよう
+
+[Point]
+- 変数 : データや値をいれるための箱
+
+- loadImage("./image/sea.png")で
+  変数 sea に画像の情報を保存します
+
+- background(画像の情報) で背景の設定が出来ます
+*********************************************/
+
+//画像 読み込み用
+PImage sea;
+
+//画面の初期設定
+void setup() {
+   //画面サイズ設定
+   size(1065, 612);
+
+   //背景画像を読み込み
+   sea = loadImage("./image/sea.png");
+}
+
+//描画処理
+void draw() {
+  //背景を設定
+  background(???);
+}
+
+</script>
+
+<body>
+    <canvas id="mycanvas"></canvas>
+</body>
+</html>

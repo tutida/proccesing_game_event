@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>processing</title>
+<script type="text/javascript" src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./js/processing.min.js"></script>
+</head>
+
+<script type="text/processing"  data-processing-target="mycanvas">
+
+int rand = 30;
+int x=y=10;
+int xdirection = ydirection = 1;
+int keyY = 180;
+int score = 0;
+
+void setup()
+{
+  size(640, 360);
+}
+
+void draw()
+{
+  background(0);
+
+  fill(255,255,255);
+
+  rect(620,mouseY-25,10,50);
+  rect(20,keyY-25,10,50);
+
+  x = x + (5 * xdirection);
+  y = y + (5 * ydirection);
+
+  if(y > height){
+    ydirection *= -1;
+  }
+
+  if(y < 0){
+    ydirection *= -1;
+  }
+
+  if(x < 20+rand){
+    if(y < keyY+25){
+      if(y > keyY-25){
+        xdirection *= -1;
+      }
+    }
+  }
+
+  if(x > 620-rand/2){
+    if(y < mouseY+25){
+      if(y > mouseY-25){
+        xdirection *= -1;
+      }
+    }
+  }
+
+  fill(255,0,0);
+  ellipse(x,y,rand,rand);
+
+  if(x < 0 || x > 640){
+    alert('game over');
+      exit();
+  }
+
+  textSize(20);
+  score = score + 1;
+  text("Score : " + score ,250,180);
+}
+
+void keyPressed(){
+
+  if(keyCode == 38){
+    keyY = keyY - 20;
+  }
+  if(keyCode == 40){
+    keyY = keyY + 20;
+  }
+
+}
+
+</script>
+
+<body>
+    <canvas id="mycanvas"></canvas>
+</body>
+</html>

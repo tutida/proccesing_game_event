@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>processing</title>
+<script type="text/javascript" src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./js/processing.min.js"></script>
+</head>
+
+<script type="text/processing"  data-processing-target="mycanvas">
+
+/*********************************************
+STEP_01 : 画面の大きさを設定してみよう
+**********************************************/
+
+/*********************************************
+- setup()の中にある
+  size(100, 100)を変更して
+  横 1065 縦 612 の画面を作ってみよう
+
+[Point]
+- size(横の大きさ, 縦の大きさ);
+  →画面のサイズを決めるための命令
+*********************************************/
+
+//画面の初期設定
+void setup() {
+   //画面サイズ設定
+   size(100, 100);
+}
+
+//描画処理
+void draw() {
+}
+
+</script>
+
+<body>
+    <canvas id="mycanvas"></canvas>
+</body>
+</html>
